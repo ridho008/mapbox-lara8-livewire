@@ -34,6 +34,8 @@
    </div>
 </div>
 
+
+
 @push('script')
    <script>
       {{-- memastikan livewire sudah terload, jika udh baru bisa diakses --}}
@@ -55,8 +57,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.73830754205",
-                      "-6.2922403995615"
+                      "101.49711148709542",
+                      "0.4543820448065361"
                     ],
                     "type": "Point"
                   },
@@ -76,8 +78,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.68681595869",
-                      "-6.3292244652013"
+                      "101.4550303955495",
+                      "0.4116833341927446"
                     ],
                     "type": "Point"
                   },
@@ -97,8 +99,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.62490035406",
-                      "-6.3266855038639"
+                      "101.41263988421241",
+                      "0.4785159885234691"
                     ],
                     "type": "Point"
                   },
@@ -118,8 +120,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.72391468711",
-                      "-6.3934163494543"
+                      "101.4312050716585",
+                      "0.44757502027873386"
                     ],
                     "type": "Point"
                   },
@@ -139,8 +141,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.67224158205",
-                      "-6.3884963990263"
+                      "101.49865858605011",
+                      "0.39002447904695714"
                     ],
                     "type": "Point"
                   },
@@ -160,8 +162,8 @@
                   "type": "Feature",
                   "geometry": {
                     "coordinates": [
-                      "106.74495523289",
-                      "-6.3642034511073"
+                      "101.56394616190443",
+                      "0.47109016853136154"
                     ],
                     "type": "Point"
                   },
@@ -193,9 +195,38 @@
                markerElement.style.backgroundSize = 'cover'
                markerElement.style.width = '50px'
                markerElement.style.height = '50px'
+               markerElement.style.borderRadius = '50px'
+
+               // styling popup
+               const content = `
+               <div style="overflow-y: auto; max-height: 400px; width: 100%;">
+                 <table class="table">
+                   <tbody>
+                     <tr>
+                       <td>Title</td>
+                       <td>${title}</td>
+                     </tr>
+                     <tr>
+                       <td>Picture</td>
+                       <td><img src="${image}" loading="lazy" class="img-fluid"></td>
+                     </tr>
+                     <tr>
+                       <td>Description</td>
+                       <td>${description}</td>
+                     </tr>
+                   </tbody>
+                 </table>
+               </div>
+               `
+
+               // menampilkan popup
+               const popUp = new mapboxgl.Popup({
+                offset:25
+               }).setHTML(content).setMaxWidth("400px")
 
                new mapboxgl.Marker(markerElement)
                .setLngLat(geometry.coordinates)
+               .setPopup(popUp)
                .addTo(map)
             })
          }
