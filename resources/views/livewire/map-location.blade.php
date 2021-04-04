@@ -50,139 +50,140 @@
 
          {{-- console.log("ini adalah variabel value", @this.test); --}}
          // menampilkan marker
-         const geoJson = {
-              "type": "FeatureCollection",
-              "features": [
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.49711148709542",
-                      "0.4543820448065361"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "Mantap",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 30,
-                    "title": "Hello new",
-                    "image": "1a1eb1e4106fff0cc3467873f0f39cab.jpeg",
-                    "description": "Mantap"
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.4550303955495",
-                      "0.4116833341927446"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "oke mantap Edit",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 29,
-                    "title": "Rumah saya Edit",
-                    "image": "0ea59991df2cb96b4df6e32307ea20ff.png",
-                    "description": "oke mantap Edit"
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.41263988421241",
-                      "0.4785159885234691"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "Update Baru",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 22,
-                    "title": "Update Baru Gambar",
-                    "image": "d09444b68d8b72daa324f97c999c2301.jpeg",
-                    "description": "Update Baru"
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.4312050716585",
-                      "0.44757502027873386"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 19,
-                    "title": "awdwad",
-                    "image": "f0b88ffd980a764b9fca60d853b300ff.png",
-                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.49865858605011",
-                      "0.39002447904695714"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 18,
-                    "title": "adwawd",
-                    "image": "4c35cb1b76af09e6205f94024e093fe6.jpeg",
-                    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-                  }
-                },
-                {
-                  "type": "Feature",
-                  "geometry": {
-                    "coordinates": [
-                      "101.56394616190443",
-                      "0.47109016853136154"
-                    ],
-                    "type": "Point"
-                  },
-                  "properties": {
-                    "message": "awdwad",
-                    "iconSize": [
-                      50,
-                      50
-                    ],
-                    "locationId": 12,
-                    "title": "adawd",
-                    "image": "7c8c949fd0499eb50cb33787d680778c.jpeg",
-                    "description": "awdwad"
-                  }
-                }
-              ]
-            }
+         // const geoJson = {
+         //      "type": "FeatureCollection",
+         //      "features": [
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.49711148709542",
+         //              "0.4543820448065361"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "Mantap",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 30,
+         //            "title": "Hello new",
+         //            "image": "1a1eb1e4106fff0cc3467873f0f39cab.jpeg",
+         //            "description": "Mantap"
+         //          }
+         //        },
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.4550303955495",
+         //              "0.4116833341927446"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "oke mantap Edit",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 29,
+         //            "title": "Rumah saya Edit",
+         //            "image": "0ea59991df2cb96b4df6e32307ea20ff.png",
+         //            "description": "oke mantap Edit"
+         //          }
+         //        },
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.41263988421241",
+         //              "0.4785159885234691"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "Update Baru",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 22,
+         //            "title": "Update Baru Gambar",
+         //            "image": "d09444b68d8b72daa324f97c999c2301.jpeg",
+         //            "description": "Update Baru"
+         //          }
+         //        },
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.4312050716585",
+         //              "0.44757502027873386"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 19,
+         //            "title": "awdwad",
+         //            "image": "f0b88ffd980a764b9fca60d853b300ff.png",
+         //            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+         //          }
+         //        },
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.49865858605011",
+         //              "0.39002447904695714"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 18,
+         //            "title": "adwawd",
+         //            "image": "4c35cb1b76af09e6205f94024e093fe6.jpeg",
+         //            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+         //          }
+         //        },
+         //        {
+         //          "type": "Feature",
+         //          "geometry": {
+         //            "coordinates": [
+         //              "101.56394616190443",
+         //              "0.47109016853136154"
+         //            ],
+         //            "type": "Point"
+         //          },
+         //          "properties": {
+         //            "message": "awdwad",
+         //            "iconSize": [
+         //              50,
+         //              50
+         //            ],
+         //            "locationId": 12,
+         //            "title": "adawd",
+         //            "image": "7c8c949fd0499eb50cb33787d680778c.jpeg",
+         //            "description": "awdwad"
+         //          }
+         //        }
+         //      ]
+         //    }
 
-         const loadLocation = () => {
+
+         const loadLocation = (geoJson) => {
             geoJson.features.forEach((location) => {
                const {geometry, properties} = location
                // console.log(location);
@@ -200,22 +201,24 @@
                // styling popup
                const content = `
                <div style="overflow-y: auto; max-height: 400px; width: 100%;">
-                 <table class="table">
-                   <tbody>
-                     <tr>
-                       <td>Title</td>
-                       <td>${title}</td>
-                     </tr>
-                     <tr>
-                       <td>Picture</td>
-                       <td><img src="${image}" loading="lazy" class="img-fluid"></td>
-                     </tr>
-                     <tr>
-                       <td>Description</td>
-                       <td>${description}</td>
-                     </tr>
-                   </tbody>
-                 </table>
+                 <div class="table-responsive">
+                   <table class="table">
+                     <tbody>
+                       <tr>
+                         <td>Title</td>
+                         <td>${title}</td>
+                       </tr>
+                       <tr>
+                         <td>Picture</td>
+                         <td><img src="${image}" loading="lazy" class="img-fluid"></td>
+                       </tr>
+                       <tr>
+                         <td>Description</td>
+                         <td>${description}</td>
+                       </tr>
+                     </tbody>
+                   </table>
+                 </div>
                </div>
                `
 
@@ -231,7 +234,7 @@
             })
          }
 
-         loadLocation()
+         loadLocation({!! $geoJson !!})
 
          // mengganti style map
          const style = "dark-v10";
