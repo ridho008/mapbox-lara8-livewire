@@ -12,20 +12,60 @@
          <div class="card">
             <div class="card-header"><h4>Form</h4></div>
                <div class="card-body">
-                  <form>
+                  <form wire:submit.prevent="saveLocation">
                      <div class="row">
                         <div class="col-md-6">
                            <div class="form-group">
                               <label for="longtitude">Longtitude</label>
                               <input type="text" wire:model="long" id="longtitude" class="form-control">
+                              @error('long')
+                              <small class="muted text-danger">{{ $message }}</small>
+                              @enderror
                            </div>
                         </div>
                         <div class="col-md-6">
                            <div class="form-group">
                               <label for="lattitude">Lattitude</label>
                               <input type="text" wire:model="lat" id="lattitude" class="form-control">
+                              @error('lat')
+                              <small class="muted text-danger">{{ $message }}</small>
+                              @enderror
                            </div>
                         </div>
+                     </div>
+                     <div class="row">
+                       <div class="col-md-12">
+                         <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" wire:model="title" id="title" class="form-control">
+                            @error('title')
+                              <small class="muted text-danger">{{ $message }}</small>
+                              @enderror
+                         </div>
+                         <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea wire:model="description" id="description" class="form-control"></textarea>
+                            @error('description')
+                              <small class="muted text-danger">{{ $message }}</small>
+                              @enderror
+                         </div>
+                         <div class="form-group">
+                            <label for="image">Image</label>
+                            <div class="custom-file">
+                              <input type="file" wire:model="image" class="custom-file-input" id="customFile">
+                              <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                            @error('image')
+                            <small class="muted text-danger">{{ $message }}</small>
+                            @enderror
+                            @if($image)
+                              <img src="{{ $image->temporaryUrl() }}" class="img-fluid">
+                            @endif
+                         </div>
+                         <div class="form-group">
+                            <button type="submit" class="btn btn-dark btn-block">Save Location</button>
+                         </div>
+                       </div>
                      </div>
                   </form>
                </div>
@@ -198,6 +238,8 @@
                markerElement.style.height = '50px'
                markerElement.style.borderRadius = '50px'
 
+               const imageStorage = '{{ asset("/storage/images") }}' + '/' + image
+
                // styling popup
                const content = `
                <div style="overflow-y: auto; max-height: 400px; width: 100%;">
@@ -210,7 +252,7 @@
                        </tr>
                        <tr>
                          <td>Picture</td>
-                         <td><img src="${image}" loading="lazy" class="img-fluid"></td>
+                         <td><img src="${imageStorage}" loading="lazy" class="img-fluid"></td>
                        </tr>
                        <tr>
                          <td>Description</td>
@@ -235,6 +277,11 @@
          }
 
          loadLocation({!! $geoJson !!})
+
+         // load page, saat menambahkan data
+         window.addEventListener('locationAdded', (e) => {
+            loadLocation(JSON.parse(e.detail))
+         })
 
          // mengganti style map
          const style = "dark-v10";
