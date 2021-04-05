@@ -11,9 +11,11 @@ class MapLocation extends Component
 {
    use WithFileUploads;
 
-   public $long, $lat, $title, $description, $image;
+   public $locationId, $long, $lat, $title, $description, $image;
    // public $value = "value test";
    public $geoJson;
+   public $imageUrl;
+   public $isEdit = false;
 
    public function loadLocations()
    {
@@ -87,6 +89,71 @@ class MapLocation extends Component
       $this->loadLocations();
       // mengatasi tambah data berhasil, tetapi marker tidak muncul (page tidak loading)
       $this->dispatchBrowserEvent('locationAdded', $this->geoJson);
+   }
+
+   public function updateLocation()
+   {
+      $this->validate([
+         'long' => 'required',
+         'lat' => 'required',
+         'title' => 'required',
+         'description' => 'required',
+      ]);
+
+      $location = Location::findOrFail($this->locationId);
+      if($this->image) {
+         $imageName = md5($this->image.microtime()).'.'.$this->image->extension();
+         Storage::putFileAs(
+            'public/images',
+            $this->image,
+            $imageName
+         );
+
+         $updateData = [
+            'title' => $this->title,
+            'description' => $this->description,
+            'image' => $imageName,
+         ];
+      } else {
+         $updateData = [
+            'title' => $this->title,
+            'description' => $this->description,
+         ];
+      }
+
+      $location->update($updateData);
+      $this->imageUrl = '';
+
+      // mengkosongkan inputan, jika tambah data berhasil
+      $this->clearForm();
+      // agar refresh saat menambahkan data
+      $this->loadLocations();
+      // mengatasi tambah data berhasil, tetapi marker tidak muncul (page tidak loading)
+      $this->dispatchBrowserEvent('locationUpdated', $this->geoJson);
+   }
+
+   public function findLocationById($id)
+   {
+      $location = Location::findOrFail($id);
+
+      $this->locationId = $id;
+      $this->long = $location->long;
+      $this->lat = $location->lat;
+      $this->title = $location->title;
+      $this->description = $location->description;
+      $this->imageUrl = $location->image;
+      $this->isEdit = true;
+   }
+
+   public function deleteLocation()
+   {
+      $location = Location::findOrFail($this->locationId);
+      $location->delete();
+
+      $this->imageUrl = '';
+      $this->clearForm();
+      $this->isEdit = false;
+      $this->dispatchBrowserEvent('locationDeleted', $this->locationId);
    }
 
    public function render()

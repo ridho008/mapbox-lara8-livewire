@@ -12,7 +12,13 @@
          <div class="card">
             <div class="card-header"><h4>Form</h4></div>
                <div class="card-body">
-                  <form wire:submit.prevent="saveLocation">
+                  <form 
+                  @if($isEdit)
+                    wire:submit.prevent="updateLocation"
+                  @else
+                    wire:submit.prevent="saveLocation"
+                  @endif
+                  >
                      <div class="row">
                         <div class="col-md-6">
                            <div class="form-group">
@@ -61,9 +67,16 @@
                             @if($image)
                               <img src="{{ $image->temporaryUrl() }}" class="img-fluid">
                             @endif
+
+                            @if($imageUrl && !$image)
+                              <img src="{{ asset('/storage/images/' . $imageUrl) }}" class="img-fluid">
+                            @endif
                          </div>
                          <div class="form-group">
-                            <button type="submit" class="btn btn-dark btn-block">Save Location</button>
+                            <button type="submit" class="btn btn-dark btn-block">{{ $isEdit ? "Update Location" : "Save Location" }}</button>
+                            @if($isEdit)
+                            <button wire:click="deleteLocation" type="button" class="btn btn-danger btn-block">Delete Location</button>
+                            @endif
                          </div>
                        </div>
                      </div>
@@ -264,6 +277,13 @@
                </div>
                `
 
+               // jika di klik markernya, timbul value disetiap inputan
+               markerElement.addEventListener('click', (e) => {
+                  const locationId =  e.srcElement.id
+                  // console.log(locationId)
+                  @this.findLocationById(locationId)
+               })
+
                // menampilkan popup
                const popUp = new mapboxgl.Popup({
                 offset:25
@@ -282,6 +302,18 @@
          window.addEventListener('locationAdded', (e) => {
             loadLocation(JSON.parse(e.detail))
          })
+
+         window.addEventListener('locationUpdated', (e) => {
+            loadLocation(JSON.parse(e.detail))
+            // console.log("update");
+            // close popup marker
+            $('.mapboxgl-popup').remove();
+         })
+
+        window.addEventListener('locationDeleted', (e) => {
+          $('.marker' + e.detail).remove();
+          $('.mapboxgl-popup').remove();
+       })
 
          // mengganti style map
          const style = "dark-v10";
